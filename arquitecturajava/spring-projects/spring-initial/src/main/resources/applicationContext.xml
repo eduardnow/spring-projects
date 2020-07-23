@@ -8,11 +8,41 @@
 		<property name="name" value="10" />
 		<property name="invoice" ref="invoiceWithTax" />
 	</bean>
-	
+
 	<bean id="invoiceWithTax" class="com.company.InvoiceWithTax">
 		<property name="number" value="10" />
 		<property name="concept" value="Computer" />
 		<property name="amount" value="310" />
+	</bean>
+
+	<bean id="personCollection" class="com.company.collection.Person">
+		<property name="name" value="10" />
+		<property name="invoice" ref="otherInvoiceWithTax" />
+	</bean>
+
+	<bean id="otherInvoiceWithTax"
+		class="com.company.collection.InvoiceWithTax">
+		<property name="number" value="10" />
+		<property name="concept" value="Computer" />
+		<property name="amount" value="310" />
+		<property name="lines">
+			<list>
+				<ref bean="lineOne" />
+				<ref bean="lineTwo" />
+			</list>
+		</property>
+	</bean>
+
+	<bean id="lineOne" class="com.company.collection.InvoiceLine">
+		<property name="number" value="1" />
+		<property name="concept" value="Computer" />
+		<property name="amount" value="300" />
+	</bean>
+
+	<bean id="lineTwo" class="com.company.collection.InvoiceLine">
+		<property name="number" value="2" />
+		<property name="concept" value="Computer" />
+		<property name="amount" value="430" />
 	</bean>
 </beans>
  
