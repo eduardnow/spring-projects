@@ -27,7 +27,7 @@ public class FriendController {
     }
 
     @PutMapping("/{id}")
-    Friend update(@PathVariable int id, @RequestBody Friend friend) {
+    Friend update(@PathVariable int id, @Valid @RequestBody Friend friend) {
         if (friendService.findById(id).isPresent()) {
             friend.setId(id);
             return friendService.save(friend);
