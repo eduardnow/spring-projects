@@ -4,6 +4,8 @@ import com.wiredbrain.friends.model.Friend;
 import com.wiredbrain.friends.service.FriendService;
 import org.springframework.web.bind.annotation.*;
 
+import javax.validation.Valid;
+
 @RestController()
 @RequestMapping("/friends")
 public class FriendController {
@@ -15,7 +17,7 @@ public class FriendController {
     }
 
     @PostMapping
-    Friend create(@RequestBody Friend friend) {
+    Friend create(@Valid @RequestBody Friend friend) {
         return friendService.save(friend);
     }
 
