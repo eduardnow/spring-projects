@@ -1,4 +1,4 @@
-package com.wiredbrain.friends;
+package com.wiredbrain.friends.service;
 
 import com.wiredbrain.friends.model.Friend;
 import com.wiredbrain.friends.service.FriendService;
