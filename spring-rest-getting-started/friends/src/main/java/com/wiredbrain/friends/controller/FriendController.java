@@ -5,6 +5,7 @@ import com.wiredbrain.friends.service.FriendService;
 import org.springframework.web.bind.annotation.*;
 
 import javax.validation.Valid;
+import javax.validation.ValidationException;
 import java.util.HashSet;
 import java.util.Set;
 
@@ -46,6 +47,11 @@ public class FriendController {
     @GetMapping
     Iterable<Friend> all() {
         return friendService.findAll();
+    }
+
+    @GetMapping("/wrong")
+    Friend somethingIsWrong() {
+        throw new ValidationException("Something is wrong");
     }
 
 }
